@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        //   1. using Literal Way 
+        let arr = [10, 20, 30, 40, 50]
+        let arr2 = [10, null, { name: "ravi" }, true, 345678n]
+        console.log(arr);
+        console.log(arr2);
+
+
+        //   2. using new keyword
+        let arr1 = new Array(10, 20, 30, 40, 50)
+        console.log(arr);
+
+
+        //Array Inbuilt Functions 
+
+        let arr3 = [10, 20, 30, 40];
+
+        arr3.push(20, "hello", true)
+        console.log(arr3);
+
+        arr3.pop()
+        arr3.pop()
+
+        console.log(arr3);
+
+        arr3.unshift(100, 200)
+        console.log(arr3);
+
+        arr3.shift()
+        console.log(arr3);
+
+        arr3.splice(3, 0, "hello")
+        console.log(arr3);
+        arr3.splice(1, 5, "Javascript")
+        console.log(arr3);
+        arr3.splice(1, 1)
+        console.log(arr3);
+
+
+        let prices = [10, 20, 500, 8510, 64200, 74510, 50, 5521, 522];
+        console.log("Original Prices: ", prices);
+
+        let discountedPrices = prices.map((cost) => {
+            return cost - cost / 10
+        })
+        console.log("Discounted Prices: ", discountedPrices);
+
+        const filteredPrices = discountedPrices.filter((cost) => {
+            return cost > 500 && cost < 50000
+        })
+
+        console.log(filteredPrices);
+
+
+        let totalCost = filteredPrices.reduce((x, acc) => {
+            return x + acc;
+        }, 200)
+
+        console.log(totalCost);
+
+        //Array de-structuring 
+        let array1 = [10, 20, 30, "hello"];
+        let [a, b, c, d] = array1;
+        console.log(a);
+        console.log(b);
+        console.log(c);
+        console.log(d);
+
+        // spread operators(...)  ->ES6  (ECMA Script)
+        let names1 = ["sai", "raju", "ramu", "ravi"]
+        let names2 = ["Rani", "anusha", "ramya", "divya"]
+
+        let allNames = [...names1, ...names2, "teja", "raghu", ...[10, 20, 30, 40]]
+        console.table(allNames);
+        //Objects 
+        let obj = {
+            name: "dev",
+            salary: 50000,
+            skills: ["cassandra", "API testing and Integration", "Middlewares", "UX/UI designing"]
+        }
+
+        console.log(obj);
+        console.log(obj.name);
+        console.log(obj.skills[1]);
+
+
+
+        // Object.seal(obj)
+        console.log(Object.isSealed(obj));
+        
+
+        obj.address = "Bangalore"
+        console.log(obj);
+        obj.name = "Reddy"
+        console.log(obj);
+
+        delete obj.salary
+        console.log(obj);
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

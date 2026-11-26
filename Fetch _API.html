@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #container{
+            display: flex;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+        }
+        body{
+            background-color: gray;
+        }
+        #title{
+            text-align: center;
+            font-size: 70px;
+        }
+        h3,h1{
+            color: aliceblue;
+            font-style: italic;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 id="title">Products</h1>
+
+    <div id="container">
+
+    </div>
+
+    <script>
+
+
+        let container = document.querySelector("#container");
+
+        window.fetch("https://dummyjson.com/products").then((res) => res.json()
+        ).then((data) => {
+            data.products.map((item) => {
+                console.log(item);
+
+                let card = document.createElement("div")
+                let cardText = document.createElement("div")
+                let btnContainer = document.createElement("div")
+                let image = document.createElement("img")
+                const titleHeading = document.createElement('h1')
+                const ratings = document.createElement('h3')
+                const price = document.createElement('h3')
+                const brand = document.createElement('h3')
+                const desc = document.createElement('p')
+                const buyBtn = document.createElement('button')
+                const addCartBtn = document.createElement('button')
+
+                container.appendChild(card)
+                card.appendChild(image)
+                card.appendChild(cardText)
+                cardText.appendChild(titleHeading)
+                cardText.appendChild(ratings)
+                cardText.appendChild(brand)
+                cardText.appendChild(price)
+                cardText.appendChild(desc)
+                cardText.appendChild(btnContainer)
+                btnContainer.appendChild(buyBtn)
+                btnContainer.appendChild(addCartBtn)
+
+                image.src = item.thumbnail
+                image.height = 280
+                image.width = 230
+                ratings.innerText = `Ratings :${item.rating}`
+                brand.innerText = `Brand : ${item.brand}`
+                desc.innerText=item.description
+                price.innerText=`Cost :${item.price}`
+                buyBtn.innerText = "Buy"
+                addCartBtn.innerText = "AddCart"
+
+                titleHeading.innerText = item.title
+
+
+                card.style.width="280px"
+                card.style.border="1px solid black"
+                card.style.padding="20px"
+                card.style.margin="10px"
+                card.style.borderRadius="10px"
+                card.style.background="linear-gradient(powderblue , blue)"
+                desc.style.color="gray"
+
+            })
+        }
+
+        ).catch((err) => console.error(err)
+        )
+    </script>
+</body>
+
+</html>

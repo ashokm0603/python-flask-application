@@ -1,0 +1,43 @@
+form{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 30px;
+    background-image: linear-gradient(transparent, salmon, orange);
+}
+
+
+form>fieldset{
+    width: 550px;
+    border-radius: 10px 50px;
+    padding: 30px;
+    background-image: linear-gradient(red, orange);
+}
+form label{
+    font-size: 23px;
+    font-weight: bold;
+    font-style: italic;
+}
+form h1{
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-style: italic;
+    font-size: 45px;
+}
+form .row{
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+form button{
+    border-radius: 10px;
+    margin: 10px;
+    padding: 10px;
+    width: 250px !important;
+}

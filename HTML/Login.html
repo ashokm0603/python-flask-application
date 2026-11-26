@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In </title>
+    <link rel="icon"
+        href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbyNHdJ9g2GT3ozfPH3y6LT30gJwzubRNWyUK8Gnf2JmTlY1H-7PUiSkQ&s=10">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        form {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            width: 100vw;
+            background-image: url("https://help.nextcloud.com/uploads/default/23cbcf8f59cdfda285a3a922b7677c0fa54f795b");
+            background-size: cover;
+            background-position: center;
+        }
+
+        form>fieldset {
+            backdrop-filter: blur(2px);
+            padding: 40px;
+            border: none;
+            box-shadow: 5px 5px 20px aliceblue;
+            border-radius: 10px 50px;
+
+            animation-name: scaling;
+            animation-duration: 2s;
+            /* animation-iteration-count: infinite; */
+        }
+
+        @keyframes scaling {
+            from {
+                transform: scale(0);
+            }
+
+            to {
+                transform: scale(1.2);
+            }
+
+        }
+
+
+
+
+
+
+
+        form h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: aliceblue;
+            font-style: italic;
+        }
+
+        form h1::first-letter {
+            font-size: 70px;
+            text-shadow: 3px 3px 3px red;
+            text-decoration: underline dashed 2px;
+        }
+
+        fieldset label {
+            color: aliceblue;
+            font-weight: bold;
+            font-style: italic;
+            text-shadow: 3px 3px 3px black;
+            margin-right: 20px;
+        }
+
+        fieldset label::after {
+            content: "*";
+            color: red;
+        }
+
+        fieldset label:first-of-type:before {
+            content: "🙎🏻";
+        }
+
+        fieldset label:last-of-type:before {
+            content: "🔐";
+        }
+
+        form div {
+            display: flex;
+            justify-content: space-evenly;
+
+        }
+
+        form div>input {
+            padding: 10px 30px;
+            font-style: italic;
+            font-family: monospace;
+            font-weight: bold;
+        }
+
+        input[type="submit"] {
+            background-color: salmon;
+
+        }
+
+        input[type="reset"] {
+            background-color: goldenrod;
+        }
+    </style>
+
+
+</head>
+
+<body>
+
+
+    <form action="">
+        <fieldset>
+
+            <h1>Login </h1>
+            <label for="uname">Username :</label>
+            <input type="text" required placeholder="Enter Username " id="uname">
+            <br><br>
+            <label for="pws">Password:</label>
+            <input type="password" required placeholder="Enter password " id="pws">
+            <br><br>
+
+            <div>
+                <input type="submit" value="sign-In">
+                <input type="reset" value="Cancel">
+            </div>
+
+        </fieldset>
+    </form>
+
+
+    <script>
+        const username = document.getElementById("uname")
+        const password = document.getElementById("pws")
+
+        const form = document.querySelector("form")
+        form.addEventListener('submit', (e) => {
+            e.preventDefault()
+            console.log("Username", username.value);
+            console.log("Password", password.value);
+            localStorage.setItem("Name ", username.value)
+            localStorage.setItem("Password", password.value)
+
+        })
+    </script>
+</body>
+
+</html>
